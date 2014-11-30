@@ -881,6 +881,8 @@ Loader.prototype.requireModule = function(currPath, moduleName,
         modulePath,
         'utf8'
       ));
+    } else if(path.extname(modulePath) === '.node') {
+      moduleObj.exports = require(modulePath);
     } else {
       this._execModule(moduleObj);
     }
